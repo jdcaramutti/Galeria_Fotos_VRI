@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Álbumes fotográficos de la Dirección de Investigación USS">
+  <title>Álbumes VRI | USS</title>
+
+  <style>
+    :root {
+      --morado: #5b21b6;
+      --morado-oscuro: #3b1676;
+      --morado-claro: #ede9fe;
+      --fondo: #f7f6fb;
+      --texto: #211a2e;
+      --secundario: #6b6478;
+      --blanco: #ffffff;
+      --borde: #ddd6fe;
+      --sombra: 0 12px 32px rgba(59, 22, 118, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 72px 20px;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(255,255,255,.18), transparent 28%),
+        linear-gradient(135deg, var(--morado-oscuro), var(--morado));
+      color: var(--blanco);
+    }
+
+    .encabezado {
+      width: min(1050px, 100%);
+      margin: auto;
+    }
+
+    .institucion {
+      margin: 0 0 12px;
+      color: #ddd6fe;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .descripcion {
+      max-width: 670px;
+      margin: 22px 0 0;
+      color: #f3e8ff;
+      font-size: 18px;
+    }
+
+    main {
+      width: min(1050px, calc(100% - 32px));
+      margin: auto;
+      padding: 54px 0 70px;
+    }
+
+    .titulo-seccion {
+      margin-bottom: 24px;
+    }
+
+    .titulo-seccion h2 {
+      margin: 0 0 6px;
+      font-size: 32px;
+    }
+
+    .titulo-seccion p {
+      margin: 0;
+      color: var(--secundario);
+    }
+
+    .albumes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .album {
+      display: flex;
+      min-height: 220px;
+      padding: 24px;
+      flex-direction: column;
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      box-shadow: var(--sombra);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .album:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(59, 22, 118, 0.16);
+    }
+
+    .miniatura {
+      width: calc(100% + 48px);
+      height: 145px;
+      margin: -24px -24px 22px;
+      border-radius: 20px 20px 0 0;
+      object-fit: cover;
+      background: var(--morado-claro);
+    }
+
+    .album h3 {
+      margin: 0 0 6px;
+      font-size: 21px;
+      line-height: 1.25;
+    }
+
+    .album p {
+      margin: 0;
+      color: var(--secundario);
+    }
+
+    .abrir {
+      display: inline-flex;
+      margin-top: auto;
+      padding-top: 22px;
+      align-items: center;
+      gap: 7px;
+      color: var(--morado);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .abrir:hover {
+      color: var(--morado-oscuro);
+      text-decoration: underline;
+    }
+
+    .abrir:focus-visible {
+      outline: 3px solid #facc15;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .principal {
+      display: flex;
+      margin-top: 30px;
+      padding: 26px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: var(--morado-claro);
+      border-radius: 20px;
+    }
+
+    .principal h2,
+    .principal p {
+      margin: 0;
+    }
+
+    .principal p {
+      margin-top: 5px;
+      color: var(--secundario);
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: var(--morado);
+      color: var(--blanco);
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .boton:hover {
+      background: var(--morado-oscuro);
+    }
+
+    footer {
+      padding: 26px 16px;
+      color: var(--secundario);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      header {
+        padding: 54px 20px;
+      }
+
+      .albumes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .principal {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .boton {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 560px) {
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .descripcion {
+        font-size: 16px;
+      }
+
+      .albumes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="encabezado">
+      <p class="institucion">Universidad Señor de Sipán</p>
+      <h1>Álbumes VRI</h1>
+      <p class="descripcion">
+        Archivo fotográfico de la Dirección de Investigación, organizado por
+        años y actividades. Selecciona un álbum para abrir su carpeta en SharePoint.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="titulo-seccion">
+      <h2>Álbumes fotográficos</h2>
+      <p>Las fotografías se abren directamente desde su carpeta original.</p>
+    </div>
+
+    <h2>Actividades 2024</h2>
+
+    <section class="albumes" aria-label="Listado de álbumes">
+      <article class="album">
+        <img class="miniatura" src="https://enfoqueimagen.com/lauracobos/wp-content/uploads/foto-bebe-malaga20200002.jpg" alt="Miniatura editable del álbum">
+        <h3>Reconocimiento Renacty 2024</h3>
+        <p>13 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2024%2FReconocimiento%20Renacty%202024&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="foto-x.jpg" alt="Miniatura editable del álbum">
+        <h3>CENA GOLF</h3>
+        <p>27 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2025%2FCENA%20GOLF&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="foto-x.jpg" alt="Miniatura editable del álbum">
+        <h3>CONGRESO CATI</h3>
+        <p>86 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2025%2FCONGRESO%20CATI&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="foto-x.jpg" alt="Miniatura editable del álbum">
+        <h3>Reconocimiento RENACYT</h3>
+        <p>8 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2025%2FReconocimiento%20RENACYT&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="foto-x.jpg" alt="Miniatura editable del álbum">
+        <h3>X Mujer en la ciencia</h3>
+        <p>21 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2025%2FX%20Mujer%20en%20la%20ciencia&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="foto-x.jpg" alt="Miniatura editable del álbum">
+        <h3>Taller Líneas de Investigación 2026</h3>
+        <p>20 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2026%2FTaller%20L%C3%ADneas%20de%20Investigaci%C3%B3n%202026&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+    </section>
+
+    <h2>Actividades 2025</h2>
+
+
+    <h2>Actividades 2026</h2>
+
+    <section class="principal">
+      <div>
+        <h2>Carpeta principal</h2>
+        <p>Consulta todas las carpetas y fotografías disponibles en SharePoint.</p>
+      </div>
+      <a class="boton" href="https://ussedupe-my.sharepoint.com/:f:/g/personal/dinvestigacion_uss_edu_pe/IgC7N0OZhbNpRazVMSO2flQWARW_OcSKN4oftEcgHsgVaHM?e=57nhiq" target="_blank" rel="noopener noreferrer">Abrir carpeta completa ↗</a>
+    </section>
+  </main>
+
+  <footer>
+    Dirección de Investigación · Universidad Señor de Sipán
+  </footer>
+</body>
+</html>
