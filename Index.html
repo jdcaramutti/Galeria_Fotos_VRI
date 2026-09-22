@@ -91,6 +91,71 @@
       color: var(--secundario);
     }
 
+    .actividades-anio {
+      margin-top: 22px;
+      overflow: hidden;
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(59, 22, 118, 0.07);
+    }
+
+    .actividades-anio summary {
+      display: flex;
+      padding: 20px 24px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--morado-oscuro);
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    .actividades-anio summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .actividades-anio summary::after {
+      content: "+";
+      display: grid;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--morado-claro);
+      color: var(--morado);
+      font-size: 26px;
+      line-height: 1;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .actividades-anio[open] summary::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+
+    .actividades-anio summary:hover {
+      background: #faf9ff;
+    }
+
+    .actividades-anio summary:focus-visible {
+      outline: 3px solid #facc15;
+      outline-offset: -4px;
+    }
+
+    .contenido-anio {
+      padding: 4px 24px 24px;
+    }
+
+    .contenido-anio > p {
+      margin: 0;
+      color: var(--secundario);
+    }
+
     .albumes {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -253,9 +318,10 @@
       <p>Las fotografías se abren directamente desde su carpeta original.</p>
     </div>
 
-    <h2>Actividades 2024</h2>
-
-    <section class="albumes" aria-label="Listado de álbumes">
+    <details class="actividades-anio" > <!-- open -->
+      <summary>Actividades 2024</summary>
+      <div class="contenido-anio">
+    <section class="albumes" aria-label="Álbumes de actividades 2024">
       <article class="album">
         <img class="miniatura" src="https://raw.githubusercontent.com/jdcaramutti/Galeria_Fotos_VRI/refs/heads/main/caratulas/Caratula_2024_Renacyt.jpg" alt="Miniatura editable del álbum">
         <h3>Reconocimiento Renacty 2024</h3>
@@ -298,11 +364,78 @@
         <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2026%2FTaller%20L%C3%ADneas%20de%20Investigaci%C3%B3n%202026&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
       </article>
     </section>
+      </div>
+    </details>
 
-    <h2>Actividades 2025</h2>
 
 
-    <h2>Actividades 2026</h2>
+    <details class="actividades-anio">
+      <summary>Actividades 2025</summary>
+      
+<div class="contenido-anio">
+    <section class="albumes" aria-label="Álbumes de actividades 2024">
+      
+      <article class="album">
+        <img class="miniatura" src="https://raw.githubusercontent.com/jdcaramutti/Galeria_Fotos_VRI/refs/heads/main/caratulas/Caratula_2024_Renacyt.jpg" alt="Miniatura editable del álbum">
+        <h3>Reconocimiento Renacty 2024</h3>
+        <p>13 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2024%2FReconocimiento%20Renacty%202024&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="foto-x.jpg" alt="Miniatura editable del álbum">
+        <h3>CENA GOLF</h3>
+        <p>27 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2025%2FCENA%20GOLF&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="foto-x.jpg" alt="Miniatura editable del álbum">
+        <h3>CONGRESO CATI</h3>
+        <p>86 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2025%2FCONGRESO%20CATI&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="foto-x.jpg" alt="Miniatura editable del álbum">
+        <h3>Reconocimiento RENACYT</h3>
+        <p>8 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2025%2FReconocimiento%20RENACYT&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="https://raw.githubusercontent.com/jdcaramutti/Galeria_Fotos_VRI/refs/heads/main/caratulas/Caratula_2024_Mujer.jpg" alt="Miniatura editable del álbum">
+        <h3>Mujer en la ciencia</h3>
+        <p>21 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2025%2FX%20Mujer%20en%20la%20ciencia&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+
+      <article class="album">
+        <img class="miniatura" src="foto-x.jpg" alt="Miniatura editable del álbum">
+        <h3>Taller Líneas de Investigación 2026</h3>
+        <p>20 fotografías</p>
+        <a class="abrir" href="https://ussedupe-my.sharepoint.com/personal/dinvestigacion_uss_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdinvestigacion%5Fuss%5Fedu%5Fpe%2FDocuments%2FFOTOS%20VRI%2F2026%2FTaller%20L%C3%ADneas%20de%20Investigaci%C3%B3n%202026&ga=1" target="_blank" rel="noopener noreferrer">Abrir álbum ↗</a>
+      </article>
+    </section>
+      </div>
+
+
+
+    </details>
+
+
+
+
+
+
+
+
+    <details class="actividades-anio">
+      <summary>Actividades 2026</summary>
+      <div class="contenido-anio">
+        <p>No hay álbumes publicados para este año.</p>
+      </div>
+    </details>
 
     <section class="principal">
       <div>
